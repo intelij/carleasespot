@@ -1,0 +1,751 @@
+@extends('frontend.layouts.app')
+@section('content')
+    <div class="vc_row wpb_row vc_row-fluid">
+        <div class="wpb_column vc_column_container vc_col-sm-12">
+            <div class="vc_column-inner ">
+                <div class="wpb_wrapper">
+                    <section class="simple-search" style="background: rgba(0, 0, 0, 0) url(assets/images/2017/06/banner-5.jpg) center center no-repeat; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+                        <div class="container">
+                            <h1>The first ever car leasing dealer marketplace</h1>
+                            <p>Find and compare the best lease deals from thousands of dealers - all on one site!</p>
+                            <div class="search-holder">
+                                <div id="custom-search-input">
+                                    <form method="get" action="search">
+                                        <div class="col-md-11 col-sm-11 col-xs-11 no-padding">
+                                            <input type="text" autocomplete="off" name="ad_title" id="autocomplete-dynamic" class="form-control " placeholder="What Are You Looking For..." />
+                                        </div>
+                                        <div class="col-md-1 col-sm-1 col-xs-1 no-padding">
+                                            <button class="btn btn-theme" type="submit"> <span class=" glyphicon glyphicon-search"></span> </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vc_row wpb_row vc_row-fluid">
+        <div class="wpb_column vc_column_container vc_col-sm-12">
+            <div class="vc_column-inner ">
+                <div class="wpb_wrapper">
+                    <div class="advance-search">
+                        <div class="section-search search-style-2">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                                        <!-- Nav tabs -->
+                                        <ul class="nav nav-tabs">
+                                            <li class="nav-item active">
+                                                <a class="nav-link" data-toggle="tab" href="#tab1">Search Car In Details </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#tab2">Search Car By Type</a>
+                                            </li>
+                                        </ul>
+                                        <!-- Tab panes -->
+                                        <div class="tab-content clearfix">
+                                            <div class="tab-pane fade in active" id="tab1">
+                                                <form method="get" action="search">
+                                                    <div class="search-form pull-left ">
+                                                        <div class="search-form-inner pull-left ">
+                                                            <div class="col-md-4 no-padding">
+                                                                <div class="form-group">
+                                                                    {!! Form::label('make', 'Select Make') !!}
+                                                                    {!! Form::select('make',$makes, null, ['class' => 'form-control input-sm chosen', 'required']) !!}
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 no-padding">
+                                                                <div class="form-group">
+                                                                    {!! Form::label('model', 'Model',['class'=>'control-label']) !!}
+                                                                    {!! Form::select('model', [''=>'Select Option'], null, ['class' => 'form-control input-sm', 'required','id'=>'models']) !!}
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-4 no-padding">
+                                                                <div class="form-group">
+                                                                    {!! Form::label('trim', 'Trim',['class'=>'control-label']) !!}
+                                                                    {!! Form::select('trim', [''=>'Select Option'], null, ['class' => 'form-control input-sm', 'required','id'=>'trims']) !!}
+                                                                </div>
+                                                            </div>
+
+                                                           <!--  <div class="col-md-4 no-padding">
+                                                                <div class="form-group">
+                                                                    <label>Select Year</label>
+                                                                    <select class=" orm-control" name="year_from">
+                                                                        <option label="Select Year" value="">Select Year</option>
+                                                                        <option value="2010">2010</option>
+                                                                        <option value="2011">2011</option>
+                                                                        <option value="2012">2012</option>
+                                                                        <option value="2013">2013</option>
+                                                                        <option value="2014">2014</option>
+                                                                        <option value="2015">2015</option>
+                                                                        <option value="2016">2016</option>
+                                                                        <option value="2017">2017</option>
+                                                                    </select>
+
+                                                                </div>
+                                                            </div> -->
+                                                        </div>
+                                                        <div class="form-group pull-right ">
+                                                            <button type="submit" id="submit_loader" value="submit" class="btn btn-lg btn-theme">Search Now</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <div class="tab-pane fade" id="tab2">
+                                                <form>
+                                                    <div class="search-form">
+                                                        <div class="search-form-inner-type">
+                                                            <div class="col-md-2 col-sm-4 col-xs-6">
+                                                                <div class="box">
+                                                                    <a href="search?body_type=Convertible">
+                                                                        <img alt="Convertible" src="assets/images/2017/06/2-1.png" />
+                                                                        <h4>Convertible</h4>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2 col-sm-4 col-xs-6">
+                                                                <div class="box">
+                                                                    <a href="search?body_type=Coupe">
+                                                                        <img alt="Coupe" src="assets/images/2017/06/3-1.png" />
+                                                                        <h4>Coupe</h4>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2 col-sm-4 col-xs-6">
+                                                                <div class="box">
+                                                                    <a href="search?body_type=Crossover">
+                                                                        <img alt="Coupe" src="assets/images/2017/06/3-1.png" />
+                                                                        <h4>Crossover</h4>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2 col-sm-4 col-xs-6">
+                                                                <div class="box">
+                                                                    <a href="search?body_type=Sedan">
+                                                                        <img alt="Sedan" src="assets/images/2017/06/4.png" />
+                                                                        <h4>Sedan</h4>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2 col-sm-4 col-xs-6">
+                                                                <div class="box">
+                                                                    <a href="search?body_type=Van/Minivan">
+                                                                        <img alt="Van/Minivan" src="assets/images/2017/06/6.png" />
+                                                                        <h4>Van/Minivan</h4>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                             
+                                                            <div class="col-md-2 col-sm-4 col-xs-6">
+                                                                <div class="box">
+                                                                    <a href="search?body_type=Hybrid">
+                                                                        <img alt="Hybrid" src="assets/images/2017/06/1-1.png" />
+                                                                        <h4>Hybrid</h4>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vc_row wpb_row vc_row-fluid">
+        <div class="wpb_column vc_column_container vc_col-sm-12">
+            <div class="vc_column-inner ">
+                <div class="wpb_wrapper">
+                    <section class="custom-padding  gray ">
+                        <div class="container">
+                            <div class="heading-panel">
+                                <div class="col-xs-12 col-md-12 col-sm-12 text-center"> <h1><span class="heading-color"> Shop </span> by make</h1></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                    <div class="row">
+                                        <div class="comparison-box">
+                                            @foreach($vehicle_makes as $make)
+                                            <a href="<?php echo url('/search?make='.$make->uuid);?>">
+                                                <div class="col-md-1 col-sm-12 col-xs-12">
+                                                    {!! Html::image(asset('assets/car_images/logos/'.$make->uuid.'/'.$make->logo), 'image', array('class' => 'img-responsive')) !!}
+                                                    <h2><p align="center">{{$make->name}}</p></h2>
+                                                </div>
+                                            </a>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vc_row wpb_row vc_row-fluid">
+        <div class="wpb_column vc_column_container vc_col-sm-12">
+            <div class="vc_column-inner ">
+                <div class="wpb_wrapper">
+                    <section class="custom-padding gray">
+                        <!-- Main Container -->
+                        <div class="container">
+                            <!-- Row -->
+                            <div class="row">
+                                <div class="heading-panel">
+                                    <div class="col-xs-12 col-md-12 col-sm-12 left-side">
+                                        <!-- Main Title -->
+                                        <h1>Latest <span class="heading-color"> Featured </span> Ads</h1>
+                                        <!-- Short Description -->
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                    <div class="row">
+                                        <div class="grid-style-2">
+                                            <div class="posts-masonry ads-for-home">
+                                                @if(count($listings) > 0)
+                                                    @foreach($listings as $listing)
+                                                        <div class="col-md-4  col-lg-4 col-sm-6 col-xs-12" id=".holder-89">
+                                                            <div class="category-grid-box-1">
+                                                                <div class="featured-ribbon"><span>Featured</span></div>
+                                                                <div class="image">
+                                                                    <a href="https://www.youtube.com/watch?v=lr7mPzjTgC0" class="play-video"><img src="assets/images/youtube-flat.png" alt="Icon" /></a>
+                                                                    <a href="{{route('listings.show',$listing->uuid)}}"><img src="{{$listing->image}}" alt="Land Rover Freelander 2 Se" class="img-responsive" /></a>
+                                                                    <div class="price-tag">
+                                                                        <div class="price"><span>${{$listing->price}}</span></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="short-description-1 clearfix">
+                                                                    <div class="category-title"> <span class="padding_cats"><a href="search-cars/index40ec.html?cat_id=144">{{count($listing->make) ? $listing->make->name : ''}}</a></span> </div>
+                                                                    <h3> <a href="{{route('listings.show',$listing->uuid)}}">{{count($listing->make) ? $listing->make->name : ''}} {{count($listing->model) ? $listing->model->name  : ''}}...</a></h3>
+                                                                    <p class="location"><i class="fa fa-map-marker"></i><a href="search-cars/index6fc5.html?country_id=392">District of Columbia</a>, <a href="search-cars/indexf093.html?country_id=238">United States</a></p>
+                                                                    <ul class="list-unstyled">
+                                                                        <li><i class="flaticon-gas-station-1"></i>Diesel</li>
+                                                                        <li><i class="flaticon-dashboard"></i>1,300 Km</li>
+                                                                        <li><i class="flaticon-engine-2"></i>1,500 cc</li>
+                                                                        <li><i class="flaticon-car-2"></i>Luxury</li>
+                                                                        <li><i class="flaticon-cogwheel-outline"></i>Blue</li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="ad-info-1">
+                                                                    <p><i class="flaticon-calendar"></i> &nbsp;<span>June 20, 2017</span> </p>
+                                                                    <ul class="pull-right ">
+                                                                        <li> <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Saved Ad" href="javascript:void(0);" class="save-ad" data-adid="89"><i class="flaticon-like-1"></i></a> </li>
+                                                                        <li> <a href="{{route('listings.show',$listing->uuid)}}"><i class="flaticon-message"></i></a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Listing Ad Grid -->
+                                                        </div>
+                                                    @endforeach
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="load-more-btn">
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vc_row wpb_row vc_row-fluid">
+        <div class="wpb_column vc_column_container vc_col-sm-12">
+            <div class="vc_column-inner ">
+                <div class="wpb_wrapper">
+                    <section class="custom-padding  gray ">
+                        <div class="container">
+                            <div class="heading-panel">
+                                <div class="col-xs-12 col-md-12 col-sm-12 text-center">
+                                    <!-- Main Title -->
+                                    <h1>Top <span class="heading-color"> Car's </span> Comparison</h1>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                    <div class="row">
+                                        <!-- Car Comparison Archive -->
+                                        <ul class="compare-masonry text-center">
+                                            <li class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="comparison-box">
+                                                    <a href="comparison">
+                                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                                            <div class="compare-grid">
+                                                                <img src="assets/images/2017/07/2-1-310x190.png" alt="" class="img-responsive" />
+                                                                <h2>2016 Ford Escape Cape</h2>
+                                                                <div class="rating">
+                                                                    <i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-o"></i> <span class="star-score"> (<strong>4</strong>)</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="vsbox">vs</div>
+                                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                                            <div class="compare-grid">
+                                                                <img src="assets/images/2017/07/1-310x190.png" alt="" class="img-responsive" />
+                                                                <h2>2017 Chevrolet Camaro</h2>
+                                                                <div class="rating">
+                                                                    <i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i> <span class="star-score"> (<strong>3</strong>)</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li> </li>
+                                            <li class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="comparison-box">
+                                                    <a href="comparison">
+                                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                                            <div class="compare-grid">
+                                                                <img src="assets/images/2017/07/5-310x190.png" alt="" class="img-responsive" />
+                                                                <h2>Mercedes-Benz C-Class</h2>
+                                                                <div class="rating">
+                                                                    <i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-ofa fa-star"></i> <span class="star-score"> (<strong>5</strong>)</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="vsbox">vs</div>
+                                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                                            <div class="compare-grid">
+                                                                <img src="assets/images/2017/07/6-310x190.png" alt="" class="img-responsive" />
+                                                                <h2>2017 Honda CR-V</h2>
+                                                                <div class="rating">
+                                                                    <i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-o"></i> <span class="star-score"> (<strong>4</strong>)</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li> </li>
+                                            <li class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="comparison-box">
+                                                    <a href="comparison">
+                                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                                            <div class="compare-grid">
+                                                                <img src="assets/images/2017/07/7-310x190.png" alt="" class="img-responsive" />
+                                                                <h2>renault suv 2016</h2>
+                                                                <div class="rating">
+                                                                    <i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i> <span class="star-score"> (<strong>3</strong>)</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="vsbox">vs</div>
+                                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                                            <div class="compare-grid">
+                                                                <img src="assets/images/2017/07/8-1-310x190.png" alt="" class="img-responsive" />
+                                                                <h2>2017 Toyota RAV4</h2>
+                                                                <div class="rating">
+                                                                    <i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-o"></i> <span class="star-score"> (<strong>4</strong>)</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li> </li>
+                                            <li class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="comparison-box">
+                                                    <a href="comparison">
+                                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                                            <div class="compare-grid">
+                                                                <img src="assets/images/2017/07/5-310x190.png" alt="" class="img-responsive" />
+                                                                <h2>Mercedes-Benz C-Class</h2>
+                                                                <div class="rating">
+                                                                    <i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-ofa fa-star"></i> <span class="star-score"> (<strong>5</strong>)</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="vsbox">vs</div>
+                                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                                            <div class="compare-grid">
+                                                                <img src="assets/images/2017/07/10-310x190.png" alt="" class="img-responsive" />
+                                                                <h2>Audi A5 Sport</h2>
+                                                                <div class="rating">
+                                                                    <i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-ofa fa-star"></i><i class="fa fa-star-ofa fa-star"></i> <span class="star-score"> (<strong>5</strong>)</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                            </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                        <div class="text-center">
+                                            <div class="load-more-btn">
+                                                <a href="comparison" target=" _blank" class="btn btn-lg  btn-theme"> Compare More Cars </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vc_row wpb_row vc_row-fluid">
+        <div class="wpb_column vc_column_container vc_col-sm-12">
+            <div class="vc_column-inner ">
+                <div class="wpb_wrapper">
+                    <section class="sell-box padding-top-70">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
+                                    <div class="sell-box-grid">
+                                        <div class="short-info">
+                                            <h2><a href="search"  target=" _blank"  > Are you looking to lease or buy a car? </a></h2>
+                                            <p>Search for the car you are interested in and compare prices from a list of dealers. </p>
+                                        </div>
+                                        <div class="text-center"><img class="img-responsive wow slideInLeft center-block" data-wow-delay="0ms" data-wow-duration="2000ms" src="assets/images/2017/06/sell.png" alt="Image Not Found" /></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
+                                    <div class="sell-box-grid">
+                                        <div class="short-info">
+                                            <h2><a href="sellyourcar"  target=" _blank"  >Are you a dealer looking to post cars infront of thousands of serious buyers? </a></h2>
+                                            <p>Get started by signing up and getting those cars infront of thousands of serious, ready-to-lease/buy shoppers. </p>
+                                        </div>
+                                        <div class="text-center">
+                                            <img class="img-responsive wow slideInRight center-block" data-wow-delay="0ms" data-wow-duration="2000ms" src="assets/images/2017/06/sell-1.png" alt="Image Not Found" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+          @section('homepage_footer')
+            <div class="container">
+                <div class="row">
+                    <!--
+                    <div class="col-md-3  col-sm-6 col-xs-12">
+                        <div class="widget">
+                            <div class="logo">
+                                <a href="index">
+                                    <img src="assets/images/2017/06/logo-2.png" class="img-responsive" alt="Site Logo">
+
+                                </a>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et dolor eget erat fringilla port.</p>
+                            <ul class="apps-donwloads">
+                                <li>
+                                    <a href="#"><img src="assets/images/googleplay.png" alt="Android App"></a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="assets/images/appstore.png" alt="IOS App"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2  col-sm-6 col-xs-12">
+                        <div class="widget socail-icons">
+
+                            <h5>Follow Us</h5>
+                            <ul>
+                                <li>
+                                    <a class="Facebook" href="#">
+                                        <i class="fa fa-facebook"></i>
+                                    </a><span><a  href="#">Facebook</a></span>
+                                </li>
+                                <li>
+                                    <a class="Twitter" href="#">
+                                        <i class="fa fa-twitter "></i>
+                                    </a><span><a  href="#">Twitter</a></span>
+                                </li>
+                                <li>
+                                    <a class="YouTube" href="#">
+                                        <i class="fa fa-youtube-play"></i>
+                                    </a><span><a  href="#">YouTube</a></span>
+                                </li>
+                                <li>
+                                    <a class="Pinterest" href="#">
+                                        <i class="fa fa-pinterest "></i>
+                                    </a><span><a  href="#">Pinterest</a></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2  col-sm-6 col-xs-12">
+
+                        <div class="widget my-quicklinks">
+                            <h5>Quick Links</h5>
+                            <ul>
+                                <li><a href="search-cars/index.html">Search</a></li>
+                                <li><a href="sell-your-car/index.html">Sell Your Car</a></li>
+                                <li><a href="shop/index.html">Shop</a></li>
+                                <li><a href="register/index.html">Register</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-5  col-sm-6 col-xs-12">
+                        <div class="widget widget-newsletter">
+                            <h5>Singup for Weekly Newsletter </h5>
+                            <div class="fieldset">
+                                <p>We may send you information about related events, webinars, products and services which we believe.</p>
+                                <form onSubmit="return checkVals();">
+                                    <input name="sb_email" id="sb_email" placeholder="Enter your email address" type="text" autocomplete="off" required>
+                                    <input class="submit-btn" id="save_email" value="Submit" type="button">
+                                    <input class="submit-btn no-display" id="processing_req" value="Processing..." type="button">
+                                    <input type="hidden" id="sb_action" value="footer_action" />
+                                </form>
+                            </div>
+                        </div>
+                        <div class="copyright">
+                            <p>Copyright 2017 © Theme Created By <a href="https://themeforest.net/user/scriptsbundle/portfolio">ScriptsBundle</a> All Rights Reserved.<a href="{{url('terms')}}">Terms And Conditions</a></p>
+                        </div>
+                    </div>
+                    -->
+                    <div class="upper-col-add">
+                        <div class="upper-col-big">
+                            <div class="upper-title">
+                                Cars For Sale
+                            </div>
+                            <div class="upper-body">
+                                <div class="upper-wrapper">
+                                    <div class="upper-body-item">
+                                        <div>
+                                            <div class="footer-side-item">
+                                                <div class="footer-list">
+                                                    <div class="footer-list-header">
+                                                        <div class="footer-list-title">By Body Style</div>
+                                                    </div>
+
+                                                    <ul class="footer-list-body">
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=Sedan">Sedans</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=Convertibles">Convertible</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=Sport">Sports Car</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=SUV">SUV's</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=Wagon">Wagons</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=Truck">Trucks</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=Van">Vans</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=Cargo Van">Cargo Vans</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="upper-body-item">
+                                        <div>
+                                            <div class="footer-side-item">
+                                                <div class="footer-list">
+                                                    <div class="footer-list-header">
+                                                        <div class="footer-list-title">Popular Sedans</div>
+                                                    </div>
+
+                                                    <ul class="footer-list-body">
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?name=BMW 3-Series">BMW 3-Series</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?name=Chevrolet Cruze">Chevrolet Cruze</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?name=Chevrolet Impala">Chevrolet Impala</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?name=Chevrolet Malibu">Chevrolet Malibu</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?name=Chrysler 200">Chrysler 200</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?name=Ford Focus">Ford Focus</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?name=Ford Fusion">Ford Fusion</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?name=Honda Accord">Honda Accord</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?name=Honda Civic">Honda Civic</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?name=Hyundai Elantra">Hyundai Elantra</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?name=Hyundai Sonata">Hyundai Sonata</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?name=Nissan Altima">Nissan Altima</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?name=Nissan Sentra">Nissan Sentra</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?name=Toyota Camry">Toyota Camry</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?name=Toyota Corolla">Toyota Corolla</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="footer-side-item">
+                                                <div class="footer-list">
+                                                    <div class="footer-list-header">
+                                                        <div class="footer-list-title">Popular Coupes</div>
+                                                    </div>
+                                                    <ul class="footer-list-body">
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=Coupe&name=Chevrolet Camaro">Chevrolet Camaro</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=Coupe&name=Dodge Challenger">Dodge Challenger</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=Coupe&name=Ford Mustang">Ford Mustang</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=Coupe&name=Honda Civic">Honda Civic</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=Coupe&name=Hyundai Veloster">Hyundai Veloster</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="upper-body-item">
+                                        <div>
+                                            <div class="footer-side-item">
+                                                <div class="footer-list">
+                                                    <div class="footer-list-header">
+                                                        <div class="footer-list-title">Popular SUVs</div>
+                                                    </div>
+
+                                                    <ul class="footer-list-body">
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=suv&name=Chevrolet Suburban">Chevrolet Suburban</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=suv&name=Chevrolet Tahoe">Chevrolet Tahoe</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=suv&name=GMC Yukon">GMC Yukon</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=suv&name=Honda Pilot">Honda Pilot</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=suv&name=Jeep Grand Cherokee">Jeep Grand Cherokee</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=suv&name=Jeep Wrangler Unlimited">Jeep Wrangler Unlimited</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=suv&name=Toyota 4Runner">Toyota 4Runner</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="footer-side-item">
+                                                <div class="footer-list">
+                                                    <div class="footer-list-header">
+                                                        <div class="footer-list-title">Popular Trucks</div>
+                                                    </div>
+                                                    <ul class="footer-list-body">
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=truck&name=Chevrolet Silverado 1500">Chevrolet Silverado 1500</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=truck&name=Chevrolet Silverado 2500">Chevrolet Silverado 2500</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=truck&name=Ford F-150">Ford F-150</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=truck&name=Ford F-250">Ford F-250</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=truck&name=GMC Sierra C/K 1500">GMC Sierra C/K 1500</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=truck&name=RAM 1500">RAM 1500</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=truck&name=Toyota Tacoma">Toyota Tacoma</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=truck&name=Toyota Tundra">Toyota Tundra</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="footer-side-item">
+                                                <div class="footer-list">
+                                                    <div class="footer-list-header">
+                                                        <div class="footer-list-title">Popular Vans</div>
+                                                    </div>
+                                                    <ul class="footer-list-body">
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=van&name=Chevrolet Express">Chevrolet Express</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=van&name=Ford Econoline">Ford Econoline</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=van&name=Ford Transit">Ford Transit</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=van&name=GMC Savana">GMC Savana</a></li>
+                                                        <li class="footer-list-item"><a class="footer-list-link" href="search?body_type=van&name=RAM ProMaster Cargo">RAM ProMaster Cargo</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="upper-col-small">
+                            <div class="upper-title">
+                                Popular Makes
+                            </div>
+                            <div class="upper-body">
+                                <div class="upper-wrapper">
+                                    <div class="footer-side-item">
+                                        <div class="footer-list">
+                                            <ul class="footer-list-body">
+                                                <li class="footer-list-item"><a class="footer-list-link" href="search?make_name=Acura">Acura</a></li>
+                                                <li class="footer-list-item"><a class="footer-list-link" href="search?make_name=Audi">Audi</a></li>
+                                                <li class="footer-list-item"><a class="footer-list-link" href="search?make_name=BMW">BMW</a></li>
+                                                <li class="footer-list-item"><a class="footer-list-link" href="search?make_name=Buick">Buick</a></li>
+                                                <li class="footer-list-item"><a class="footer-list-link" href="search?make_name=Cadillac">Cadillac</a></li>
+                                                <li class="footer-list-item"><a class="footer-list-link" href="search?make_name=Chevrolet">Chevrolet</a></li>
+                                                <li class="footer-list-item"><a class="footer-list-link" href="search?make_name=Chrysler">Chrysler</a></li>
+                                                <li class="footer-list-item"><a class="footer-list-link" href="search?make_name=Dodge">Dodge</a></li>
+                                                <li class="footer-list-item"><a class="footer-list-link" href="search?make_name=Ford">Ford</a></li>
+                                                <li class="footer-list-item"><a class="footer-list-link" href="search?make_name=GMC">GMC</a></li>
+                                                <li class="footer-list-item"><a class="footer-list-link" href="search?make_name=Honda">Honda</a></li>
+                                                <li class="footer-list-item"><a class="footer-list-link" href="search?make_name=Hyundai">Hyundai</a></li>
+                                                <li class="footer-list-item"><a class="footer-list-link" href="search?make_name=Infiniti">Infiniti</a></li>
+                                                <li class="footer-list-item"><a class="footer-list-link" href="search?make_name=Jeep">Jeep</a></li>
+                                                <li class="footer-list-item"><a class="footer-list-link" href="search?make_name=KIA">KIA</a></li>
+                                                <li class="footer-list-item"><a class="footer-list-link" href="search?make_name=Lexus">Lexus</a></li>
+                                                <li class="footer-list-item"><a class="footer-list-link" href="search?make_name=Lincoln">Lincoln</a></li>
+                                                <li class="footer-list-item"><a class="footer-list-link" href="search?make_name=Mazda">Mazda</a></li>
+                                                <li class="footer-list-item"><a class="footer-list-link" href="search?make_name=Mercedes-Benz">Mercedes-Benz</a></li>
+                                                <li class="footer-list-item"><a class="footer-list-link" href="search?make_name=Mitsubishi">Mitsubishi</a></li>
+                                                <li class="footer-list-item"><a class="footer-list-link" href="search?make_name=Nissan">Nissan</a></li>
+                                                <li class="footer-list-item"><a class="footer-list-link" href="search?make_name=RAM">RAM</a></li>
+                                                <li class="footer-list-item"><a class="footer-list-link" href="search?make_name=Subaru">Subaru</a></li>
+                                                <li class="footer-list-item"><a class="footer-list-link" href="search?make_name=Toyota">Toyota</a></li>
+                                                <li class="footer-list-item"><a class="footer-list-link" href="search?make_name=Volkswagen">Volkswagen</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          @endsection
+            <div class="addtoany_share_save_container addtoany_content addtoany_content_bottom">
+        <div class="a2a_kit a2a_kit_size_32 addtoany_list" data-a2a-url="http://localhost:8888/wordpress/" data-a2a-title="Home">
+            <a class="a2a_button_facebook" href="https://www.addtoany.com/add_to/facebook?linkurl=http%3A%2F%2Flocalhost%3A8888%2Fwordpress%2F&amp;linkname=Home" title="Facebook" rel="nofollow noopener" target="_blank"></a>
+            <a class="a2a_button_twitter" href="https://www.addtoany.com/add_to/twitter?linkurl=http%3A%2F%2Flocalhost%3A8888%2Fwordpress%2F&amp;linkname=Home" title="Twitter" rel="nofollow noopener" target="_blank"></a>
+            <a class="a2a_button_google_plus" href="https://www.addtoany.com/add_to/google_plus?linkurl=http%3A%2F%2Flocalhost%3A8888%2Fwordpress%2F&amp;linkname=Home" title="Google+" rel="nofollow noopener" target="_blank"></a>
+            <a class="a2a_dd addtoany_share_save addtoany_share" href="https://www.addtoany.com/share"></a>
+        </div>
+    </div>
+@endsection
+@section('scripts')
+    <script>
+        (function($){
+            $(document).on('change','[name=make]', function(){
+                var make = $(this).val();
+                var dropdown = $('#models');
+                dropdown.prop('disabled',true).html('');
+                dropdown.append('<option value="">Select Option</option>');
+                $.post('{{route('make_models')}}',{make:make,"_token": "{{ csrf_token() }}"}, function(data) {
+                    if(data != ''){
+                        // Loop through each of the results and append the option to the dropdown
+                        $.each(data, function(k, v){
+                            dropdown.append('<option value="' + v.uuid + '">' + v.name + '</option>');
+                        });
+                    }
+                }).always(function() {
+                    dropdown.prop('disabled',false);
+                });
+            });
+
+            $(document).on('change','[name=model]', function(){
+                var model = $(this).val();
+                var dropdown = $('#trims');
+                dropdown.prop('disabled',true).html('');
+                dropdown.append('<option value="">Select Option</option>');
+                $.post('{{route('model_trims')}}',{model:model,"_token": "{{ csrf_token() }}"}, function(data) {
+                    if(data != ''){
+                        // Loop through each of the results and append the option to the dropdown
+                        $.each(data, function(k, v){
+                            dropdown.append('<option value="' + v.id_car_trim + '">' + v.name + '</option>');
+                        });
+                    }
+                }).always(function() {
+                    dropdown.prop('disabled',false);
+                });
+            });
+        })(jQuery)
+    </script>
+@endsection
